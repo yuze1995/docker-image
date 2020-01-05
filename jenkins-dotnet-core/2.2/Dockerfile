@@ -36,4 +36,7 @@ RUN dotnet tool install --global dotnet-sonarscanner --version 4.8.0
 ENV PATH="$PATH:/root/.dotnet/tools"
 
 # Clean docker env
-RUN unset ${!DOCKER_*}
+RUN unset DOCKER_TLS_VERIFY \
+    && unset DOCKER_CERT_PATH \
+    && unset DOCKER_MACHINE_NAME \
+    && unset DOCKER_HOST
