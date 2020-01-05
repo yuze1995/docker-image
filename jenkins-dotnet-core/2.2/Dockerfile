@@ -34,3 +34,6 @@ RUN wget -O dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$DOTNET_SDK
 # Install sonar sacanner .net core 3.0 version to dotnet tool
 RUN dotnet tool install --global dotnet-sonarscanner --version 4.8.0
 ENV PATH="$PATH:/root/.dotnet/tools"
+
+# Clean docker env
+RUN unset ${!DOCKER_*}
